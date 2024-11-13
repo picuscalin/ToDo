@@ -1,0 +1,32 @@
+.container {
+  height: 100vh;
+  background-color: red;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 5fr;
+}
+.main-portion {
+  background-color: aliceblue;
+}
+.sidebar {
+  background-color: silver;
+}
+.plus {
+  background-color: rgb(61, 7, 7);
+  color: white;
+  border-radius: 20px;
+
+  width: 50px;
+  height: 40px;
+  box-shadow: 10px 10px 4px rgba(3, 2, 2, 0.2);
+}
+.card {
+  background-color: green;
+  border: 2px solid red;
+}
+.wrapper {
+  border: 2px solid purple;
+}
+.project {
+  display: block;
+}
