@@ -1,23 +1,10 @@
 import { Todo } from "./to-do-create.js";
+import { formHandle } from "./form.js";
+import { projectForm } from "./form.js";
 const list = [];
+const projectList = [];
 
-function formHandle() {
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (e) => {
-    const title = document.querySelector("#title").value;
-    const due = document.querySelector("#due").value;
-    const desc = document.querySelector("#desc").value;
-    const priority = document.querySelector("#priority").value;
-    e.preventDefault();
-    form.reset();
-
-    console.log(title);
-    list.push(new Todo(title, due, desc, priority));
-    console.log(list);
-    toDoCard();
-  });
-}
-function toDoCard() {
+export function toDoCard() {
   const wrapper = document.querySelector(".wrapper");
   wrapper.innerHTML = "";
   wrapper.classList.add("wrapper");
@@ -27,7 +14,8 @@ function toDoCard() {
     deleteBtn.addEventListener("click", (e) => {
       list.splice(e.target.dataset.index, 1);
       card.remove();
-      console.log(list);
+
+      toDoCard();
     });
     card.classList.add("card");
     card.dataset.index = list.indexOf(element);
@@ -37,16 +25,31 @@ function toDoCard() {
 
     wrapper.appendChild(card);
   });
-  console.log(list);
 }
+function projectDisplay() {
+  const sidebar = document.querySelector(".sidebar");
+  const wrapper = document.querySelector(".wrapper");
 
+  const projectButtons = document.querySelector(".projectButtons");
+  projectButtons.innerHTML = "";
+
+  projectList.forEach((element) => {
+    const button = document.createElement("button");
+
+    button.textContent = element;
+    button.addEventListener("click", (e) => {
+      console.log("nigger");
+    });
+    projectButtons.appendChild(button);
+    button.classList.add("projectNames");
+  });
+}
 export function showTask() {
   const plus = document.querySelector(".plus");
   const dialog = document.querySelector("dialog");
   const close = document.querySelector(".close");
   const form = document.querySelector("form");
 
-  const submit = document.querySelector(".submit");
   plus.addEventListener("click", (e) => {
     dialog.showModal();
   });
@@ -54,5 +57,20 @@ export function showTask() {
     form.reset();
     dialog.close();
   });
-  formHandle();
+
+  formHandle(toDoCard, list);
 }
+export function showForm() {
+  const modal = document.querySelector(".projectDialog");
+  const projectClose = document.querySelector(".projectClose");
+  const projectBtn = document.querySelector(".project");
+  projectBtn.addEventListener("click", (e) => {
+    modal.showModal();
+  });
+  projectClose.addEventListener("click", (e) => {
+    modal.close();
+    projectForm().newProject.reset();
+  });
+  projectForm(projectDisplay, projectList);
+}
+console.log(list);

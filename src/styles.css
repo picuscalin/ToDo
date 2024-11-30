@@ -30,3 +30,13 @@
 .project {
   display: block;
 }
+.projectButtons {
+  display: flex;
+  border: 2px solid blue;
+  flex-direction: column;
+
+  height: 100%;
+}
+.projectNames {
+  margin: 10px;
+}

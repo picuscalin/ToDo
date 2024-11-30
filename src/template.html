@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <dialog class="dialog">
-        <form method="dialog">
+        <form method="dialog" class="form">
           <div>
             <label for="title">title</label> <input type="text" id="title" />
           </div>
@@ -24,18 +24,31 @@
             <label for="priority">priority</label>
             <input type="text" id="priority" />
           </div>
-          <button class="submit">susbmit</button>
+          <button class="submit" type="submit">susbmit</button>
         </form>
-        <button class="close">close</button>
+        <button class="close" type="button">close</button>
       </dialog>
       <div class="sidebar">
         fsdfsdf
         <button class="plus">+</button>
         <button class="project">New Project</button>
+        <div class="projectButtons"></div>
       </div>
       <div class="main-portion">
         fdsfsdfsdf
         <div class="wrapper"></div>
+        <div class="project">
+          <dialog class="projectDialog">
+            <form method="dialog" class="projectForm">
+              <div>
+                <label for="projectText">Project Name</label>
+                <input id="projectText" type="text" />
+              </div>
+              <button class="projectSubmit" type="submit">add project</button>
+              <button class="projectClose" type="button">close</button>
+            </form>
+          </dialog>
+        </div>
       </div>
     </div>
   </body>
