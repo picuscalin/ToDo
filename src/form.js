@@ -1,6 +1,7 @@
 import { Todo } from "./to-do-create";
 import { toDoCard } from "./visual-to-to";
 import { storeToDo } from "./project";
+
 export function formHandle(fnc, list) {
   const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
@@ -14,12 +15,11 @@ export function formHandle(fnc, list) {
     console.log(title);
     list.push(new Todo(title, due, desc, priority));
 
-    console.log(list);
     fnc();
   });
 }
 
-export function projectForm(fnc, listproject) {
+export function projectForm(fnction, nigger) {
   const newProject = document.querySelector(".projectForm");
   newProject.addEventListener("submit", (e) => {
     const projectText = document.querySelector("#projectText").value;
@@ -27,9 +27,10 @@ export function projectForm(fnc, listproject) {
     e.preventDefault();
 
     newProject.reset();
-    listproject.push(projectText);
-    console.log(listproject);
-    fnc();
+    nigger.push(projectText);
+
+    fnction();
+    console.log(nigger);
   });
   return { newProject };
 }

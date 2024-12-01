@@ -1,8 +1,8 @@
 import { Todo } from "./to-do-create.js";
 import { formHandle } from "./form.js";
 import { projectForm } from "./form.js";
-const list = [];
-const projectList = [];
+let list = [];
+let projectList = [];
 
 export function toDoCard() {
   const wrapper = document.querySelector(".wrapper");
@@ -31,6 +31,7 @@ function projectDisplay() {
   const wrapper = document.querySelector(".wrapper");
 
   const projectButtons = document.querySelector(".projectButtons");
+  const header = document.querySelector(".header");
   projectButtons.innerHTML = "";
 
   projectList.forEach((element) => {
@@ -38,7 +39,9 @@ function projectDisplay() {
 
     button.textContent = element;
     button.addEventListener("click", (e) => {
-      console.log("nigger");
+      wrapper.innerHTML = "";
+      list.length = 0;
+      header.textContent = element;
     });
     projectButtons.appendChild(button);
     button.classList.add("projectNames");
